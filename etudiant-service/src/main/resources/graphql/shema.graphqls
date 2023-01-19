@@ -1,0 +1,47 @@
+type Etudiant{
+
+    id:ID,
+    name:String,
+    cin:String,
+    dateN:String,
+    typeFormation:String,
+    email:String,
+    actif:String
+
+}
+
+type Query{
+    getEtudiant:[Etudiant]
+    getEtudiantId(id:ID):Etudiant
+}
+
+
+type Mutation{
+    addEtudiant (e:EtudiantDTORequest):EtudiantDTOResponse
+    updateEtudiant(id:ID,e:EtudiantInput ) : Etudiant
+    deleteEtudiant(id:ID) : Boolean
+}
+
+input EtudiantInput {
+    id:ID,
+    name:String,
+    cin:String,
+    dateN:String,
+    typeFormation:String,
+    email:String,
+    actif:String
+}
+
+input EtudiantDTORequest{
+    name:String,
+    cin:String,
+    dateN:String,
+    email:String,
+}
+
+type EtudiantDTOResponse {
+    id:ID,
+    name:String,
+    cin:String,
+    typeFormation:String,
+}
