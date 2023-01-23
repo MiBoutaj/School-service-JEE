@@ -13,6 +13,9 @@
         <module>config-server</module>
         <module>eureka-service</module>
         <module>student-service</module>
+        <module>course-service</module>
+        <module>professors-service</module>
+        <module>Absence-service</module>
     </modules>
 
     <name>schoolservices</name>
@@ -40,6 +43,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
