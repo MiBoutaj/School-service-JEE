@@ -1,8 +1,15 @@
 package com.school.etudiant;
 
+import com.school.etudiant.enums.TypeFormation;
+import com.school.etudiant.model.Etudiant;
+import com.school.etudiant.repositorir.EturdiantRepositorie;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
+
+import java.util.Date;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -12,7 +19,7 @@ public class EtudiantApplication {
         SpringApplication.run(EtudiantApplication.class, args);
     }
 
- /*   @Bean
+  /*  @Bean
     CommandLineRunner commandLineRunner(EturdiantRepositorie etudiantR){
         return args -> {
             for (int i = 2; i < 10; i++) {
@@ -23,6 +30,8 @@ public class EtudiantApplication {
         };
     }
 
-  */
+   */
+
+
 
 }

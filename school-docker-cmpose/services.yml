@@ -1,0 +1,47 @@
+version: '3.7'
+services:
+  eureka-service:
+    image: com.school/eureka.service:1.0-SNAPSHOT
+    ports:
+      - "8761:8761"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5014 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "SERVER_PORT=8761"
+      - "EUREKA_INSTANCE_HOSTNAME=eureka-service"
+      - "LOG_APP-NAME=eureka-service"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+  gateway-service:
+    image: com.school/api.gateway:1.0-SNAPSHOT
+    ports:
+      - "9092:9092"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5016 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=debug"
+      - "LOGGING_LEVEL_ROOT=debug"
+      - "SERVER_PORT=9092"
+      - "EUREKA_CLIENT_SERVICE-URL_DEFAULT-ZONE=http://eureka-service:8761/eureka/"
+      - "SPRING_ZIPKIN_BASE-URL=http://zipkin:9411"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+  etudiant-service:
+    image: com.school/etudiant.service:1.0-SNAPSHOT
+    ports:
+      - "8088:8088"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5016 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=debug"
+      - "LOGGING_LEVEL_ROOT=debug"
+      - "SERVER_PORT=8088"
+      - "EUREKA_CLIENT_SERVICE-URL_DEFAULT-ZONE=http://eureka-service:8761/eureka/"
+      - "SPRING_ZIPKIN_BASE-URL=http://zipkin:9411"
+      - "SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/produit?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC"
+      - "SPRING_DATASOURCE_PASSWORD=admin"
+      - "SPRING_DATASOURCE_USERNAME=root"
+    depends_on:
+      - eureka-service
+      - gateway-service
+      - mariadb-school
+    networks:
+      - ${GLOBAL_NETWORK:-services}

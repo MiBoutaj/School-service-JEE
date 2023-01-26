@@ -12,14 +12,14 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(produces = "application/json",path = "/api/v1/etudiant/")
+@RequestMapping(produces = "application/json",path = "/api/v1/etudiant")
 public class EtudiantController {
 
     @Autowired
     EtudiantServcieImpl etudiantServcie;
 
-    @PostMapping
-    public EtudiantResponse addEtudiant(EtudiantRequeste etudiant){
+    @PostMapping("/add")
+    public EtudiantResponse addEtudiant(@RequestBody EtudiantRequeste etudiant){
         return etudiantServcie.addEtudiant(etudiant);
     }
 
