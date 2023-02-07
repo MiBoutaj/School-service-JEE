@@ -1,60 +1,38 @@
 version: '3.7'
 services:
-  eureka-service:
-    image: com.school/eureka.service:1.0-SNAPSHOT
+  eureka-server:
+    image: 2001daa/eureka-server:latest
+    container_name: eureka-server
     ports:
       - "8761:8761"
     environment:
-      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5014 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_ROOT=info"
-      - "SERVER_PORT=8761"
-      - "EUREKA_INSTANCE_HOSTNAME=eureka-service"
-      - "LOG_APP-NAME=eureka-service"
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
-      - ${GLOBAL_NETWORK:-services}
-  gateway-service:
-    image: com.school/api.gateway:1.0-SNAPSHOT
+      - ${GLOBAL_NETWORK:-spring}
+    depends_on:
+      - zipkin
+  apigw:
+    image: 2001daa/apigw:latest
+    container_name: apigw
     ports:
-      - "9092:9092"
+      - "8083:8083"
     environment:
-      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5016 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=debug"
-      - "LOGGING_LEVEL_ROOT=debug"
-      - "SERVER_PORT=9092"
-      - "EUREKA_CLIENT_SERVICE-URL_DEFAULT-ZONE=http://eureka-service:8761/eureka/"
-      - "SPRING_ZIPKIN_BASE-URL=http://zipkin:9411"
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
-      - ${GLOBAL_NETWORK:-services}
-  etudiant-service:
-    image: com.school/etudiant.service:1.0-SNAPSHOT
+      - ${GLOBAL_NETWORK:-spring}
+    depends_on:
+      - zipkin
+      - eureka-server
+  student:
+    image: 2001daa/student-service:latest
+    container_name: customer
     ports:
       - "8088:8088"
     environment:
-      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5016 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=debug"
-      - "LOGGING_LEVEL_ROOT=debug"
-      - "SERVER_PORT=8088"
-      - "EUREKA_CLIENT_SERVICE-URL_DEFAULT-ZONE=http://eureka-service:8761/eureka/"
-      - "SPRING_ZIPKIN_BASE-URL=http://zipkin:9411"
-      - "SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/produit?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC"
-      - "SPRING_DATASOURCE_PASSWORD=admin"
-      - "SPRING_DATASOURCE_USERNAME=root"
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - ${GLOBAL_NETWORK:-spring}
     depends_on:
-      - eureka-service
-      - gateway-service
+      - zipkin
+      - eureka-server
       - mariadb-school
-    networks:
-      - ${GLOBAL_NETWORK:-services}
-  kafka-producer:
-    image: com.school/kafka.producer:1.0-SNAPSHOT
-    ports:
-      - "8085:8085"
-    environment:
-      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5016 -Xms128m -Xmx256m"
-      - "SERVER_PORT=8085"
-      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:9092"
-    depends_on:
-      - zookeeper
-      - kafka
-    networks:
-      - ${GLOBAL_NETWORK:-services}

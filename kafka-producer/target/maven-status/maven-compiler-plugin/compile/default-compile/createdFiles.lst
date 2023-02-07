@@ -1,6 +1,5 @@
 com\school\conf\KafkaTopicConfig.class
 com\school\KafkaProducerService$1.class
-com\school\model\Absence.class
 com\school\KafkaProducerService.class
 com\school\service\AbsencePublisher.class
 com\school\conf\KafkaProducerConfig.class

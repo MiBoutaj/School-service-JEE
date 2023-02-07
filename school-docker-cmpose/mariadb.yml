@@ -8,7 +8,7 @@ services:
       MYSQL_USER:  admin
       MYSQL_PASSWORD: admin
     expose:
-      - "40000"
+      - "40002"
     ports:
       - "3306:3306"
     volumes:
@@ -19,9 +19,9 @@ services:
   phpmyadmin-school:
     image: phpmyadmin
     expose:
-      - "40001"
+      - "40002"
     ports:
-      - "40001:80"
+      - "40002:80"
     environment:
       - PMA_HOST=mariadb
       - PMA_PORT=3306

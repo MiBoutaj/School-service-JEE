@@ -1,0 +1,10 @@
+com\school\dto\ProfessorResponse.class
+com\school\service\ProfessorServiceIMPL.class
+com\school\ProfessorsService.class
+com\school\mappers\ProfessorMapper.class
+com\school\service\ProfessorSerice.class
+com\school\repository\ProfessorRepository.class
+com\school\controller\ProfessorController.class
+com\school\dto\ProfessorRequeste.class
+com\school\enums\Metier.class
+com\school\model\Professor.class

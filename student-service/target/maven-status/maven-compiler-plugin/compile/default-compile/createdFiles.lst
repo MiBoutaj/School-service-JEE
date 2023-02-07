@@ -7,6 +7,8 @@ com\school\etudiant\service\EtudiantServcieImpl.class
 com\school\etudiant\model\EtudiantProjection.class
 com\school\etudiant\repositorir\EturdiantRepositorie.class
 com\school\etudiant\dto\EtudiantRequeste.class
+com\school\etudiant\security\SecurityConfig.class
+com\school\etudiant\security\KeycloakAdapterConfig.class
 com\school\etudiant\controller\EtudiantController.class
 com\school\etudiant\dto\EtudiantResponse.class
 com\school\etudiant\exception\EtudiantException.class

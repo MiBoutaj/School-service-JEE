@@ -1,12 +1,14 @@
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\security\KeycloakAdapterConfig.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\dto\EtudiantResponse.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\controller\EtudiantController.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\mappers\EtudiantMapper.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\dto\EtudiantRequeste.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\enums\TypeFormation.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\EtudiantApplication.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\service\EtudiantServcieImpl.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\model\Etudiant.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\model\EtudiantProjection.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\service\EtudiantService.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\security\SecurityConfig.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\repositorir\EturdiantRepositorie.java
-C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\service\EtudiantServcieImpl.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\student-service\src\main\java\com\school\etudiant\exception\EtudiantException.java

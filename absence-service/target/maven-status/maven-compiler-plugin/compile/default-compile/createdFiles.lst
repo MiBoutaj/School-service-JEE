@@ -1,0 +1,6 @@
+com\school\config\KafkaConsumerConfig.class
+com\school\entities\EtudiantAbsence.class
+com\school\AbsenceService.class
+com\school\service\AbsenceConsumerConfig.class
+com\school\repository\AbsenceRepository.class
+com\school\service\AbsenceSerializer.class

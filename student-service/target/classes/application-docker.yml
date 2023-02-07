@@ -1,0 +1,33 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: etudiant
+  datasource:
+    url: jdbc:mysql://localhost:3306/etudiant?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    password: admin
+    username: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  zipkin:
+    base-url: http://zipkin:9411
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+
+keycloak:
+  realm: Student-realm
+  resource: student-service
+  bearer-only: true
+  auth-server-url: http://localhost:8080
+  ssl-required: none
