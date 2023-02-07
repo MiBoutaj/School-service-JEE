@@ -12,6 +12,7 @@
         <module name="apigw" />
         <module name="config-server" />
         <module name="absence-service" />
+        <module name="Absence-service" />
         <module name="student-service" />
         <module name="eureka-server" />
         <module name="professors-service" />
