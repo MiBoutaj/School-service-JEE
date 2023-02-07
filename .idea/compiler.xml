@@ -11,7 +11,9 @@
         <module name="course-service" />
         <module name="apigw" />
         <module name="config-server" />
+        <module name="common" />
         <module name="absence-service" />
+        <module name="kafka-producer" />
         <module name="student-service" />
         <module name="eureka-server" />
         <module name="professors-service" />

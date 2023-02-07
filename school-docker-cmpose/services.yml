@@ -45,3 +45,16 @@ services:
       - mariadb-school
     networks:
       - ${GLOBAL_NETWORK:-services}
+  kafka-producer:
+    image: com.school/kafka.producer:1.0-SNAPSHOT
+    ports:
+      - "8085:8085"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5016 -Xms128m -Xmx256m"
+      - "SERVER_PORT=8085"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:9092"
+    depends_on:
+      - zookeeper
+      - kafka
+    networks:
+      - ${GLOBAL_NETWORK:-services}
