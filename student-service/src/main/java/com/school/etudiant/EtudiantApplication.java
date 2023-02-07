@@ -19,7 +19,7 @@ public class EtudiantApplication {
         SpringApplication.run(EtudiantApplication.class, args);
     }
 
-  /*  @Bean
+    @Bean
     CommandLineRunner commandLineRunner(EturdiantRepositorie etudiantR){
         return args -> {
             for (int i = 2; i < 10; i++) {
@@ -30,7 +30,7 @@ public class EtudiantApplication {
         };
     }
 
-   */
+
 
 
 
