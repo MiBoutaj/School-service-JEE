@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   mariadb-school:
+    container_name: mariadb-school
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: admin
