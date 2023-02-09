@@ -7,16 +7,11 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
     ports:
-      - "27017:27017"
+      - "27019:27017"
     networks:
       - ${GLOBAL_NETWORK:-mongo}
     volumes:
-      - type: volume
-        source: MONGO_DATA
-        target: /data/db
-      - type: volume
-        source: MONGO_CONFIG
-        target: /data/configdb
+      - mongodb-data:/data/db
   mongo-express:
     image: mongo-express:latest
     container_name: mongo-express
@@ -34,7 +29,4 @@ services:
 
 
 volumes:
-  MONGO_DATA:
-    name: MONGO_DATA
-  MONGO_CONFIG:
-    name: MONGO_CONFIG
+  mongodb-data:

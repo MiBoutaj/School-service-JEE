@@ -31,10 +31,6 @@ public class ProfessorServiceIMPL implements ProfessorSerice{
             return null;
         }
 
-        @Override
-        public void deleteProfessor(Long id) {
-
-        }
 
         @Override
         public List<Professor> getProfessor() {
@@ -45,7 +41,7 @@ public class ProfessorServiceIMPL implements ProfessorSerice{
         public Professor findById(Long id) {
             return repositorie.findById(id).orElseThrow(()-> new RuntimeException("Professor not fount"));
         }
-
+    @Override
         public void deleteById(Long id) {
         repositorie.deleteById(id);
     }

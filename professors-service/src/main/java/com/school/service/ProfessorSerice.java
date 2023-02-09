@@ -9,7 +9,7 @@ import java.util.List;
 public interface ProfessorSerice {
     ProfessorResponse addProfessor(ProfessorRequeste professor);
     Professor editProfessor(Long id, Professor professor);
-    void deleteProfessor(Long id);
+    void deleteById(Long id);
     List<Professor> getProfessor();
     Professor findById(Long id);
 

@@ -1,6 +1,7 @@
 package com.school.conf;
 
-import com.school.Absence;
+
+import com.school.model.Absence;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,15 +31,13 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public ProducerFactory<String,Absence> ProducerOrderFactory(){
+    public ProducerFactory<String,Absence> producerOrderFactory(){
         return new DefaultKafkaProducerFactory<>(producerConfig());
     }
 
     @Bean
-    public KafkaTemplate<String,Absence> orderTemplate(
-            ProducerFactory<String,Absence> orderFactory
-    ){
-        return new KafkaTemplate<>(orderFactory);
+    public KafkaTemplate<String, Absence> orderTemplate(){
+        return new KafkaTemplate<>(producerOrderFactory());
     }
 
 }

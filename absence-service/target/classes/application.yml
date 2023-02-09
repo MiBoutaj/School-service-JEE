@@ -6,12 +6,12 @@ spring:
     name: absence
   data:
     mongodb:
-      database: absence
+      authentication-database: admin
       username: admin
       password: admin
-      port: 27017
+      database: absence
+      port: 27019
       host: localhost
-      authentication-database: admin
   kafka:
     bootstrap-servers: http://localhost:29092
   zipkin:
