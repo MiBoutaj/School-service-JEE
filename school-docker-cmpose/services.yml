@@ -25,7 +25,7 @@ services:
       - eureka-server
   student:
     image: 2001daa/student-service:latest
-    container_name: customer
+    container_name: student
     ports:
       - "8088:8088"
     environment:
@@ -36,3 +36,63 @@ services:
       - zipkin
       - eureka-server
       - mariadb-school
+  professor:
+    image: 2001daa/professors-service:latest
+    container_name: professor
+    ports:
+      - "8089:8089"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - ${GLOBAL_NETWORK:-spring}
+    depends_on:
+      - zipkin
+      - eureka-server
+      - mariadb-school
+  course:
+    image: 2001daa/course-service:latest
+    container_name: course
+    ports:
+      - "8092:8092"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - ${GLOBAL_NETWORK:-spring}
+    depends_on:
+      - zipkin
+      - eureka-server
+      - mariadb-school
+      - professor
+      - student
+
+  absence:
+    image: 2001daa/absence-service:latest
+    container_name: absence
+    ports:
+      - "8086:8086"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_KAFKA_BOOTSTRAPSERVERS=kafka:9092
+    networks:
+      - ${GLOBAL_NETWORK:-spring}
+    depends_on:
+      - zipkin
+      - eureka-server
+      - mongo
+      - student
+      - kafka
+  kafka-producer:
+    image: 2001daa/kafka-producer:latest
+    container_name: kafka-producer
+    ports:
+      - "8085:8085"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - ${GLOBAL_NETWORK:-spring}
+    depends_on:
+      - zipkin
+      - eureka-server
+      - mongo
+      - kafka
+

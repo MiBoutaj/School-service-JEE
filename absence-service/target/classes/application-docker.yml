@@ -1,0 +1,25 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: absence
+  data:
+    mongodb:
+      authentication-database: admin
+      username: admin
+      password: admin
+      database: absence
+      port: 27019
+      host: mongo
+  kafka:
+    bootstrap-servers: http://kafka:29092
+  zipkin:
+    base-url: http://zipkin:9411
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka

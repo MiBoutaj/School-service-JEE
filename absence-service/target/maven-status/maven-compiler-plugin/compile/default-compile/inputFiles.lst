@@ -1,6 +1,12 @@
-C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\service\AbsenceSerializer.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\model\sousModel\Etudiant.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\model\sousModel\Metier.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\model\sousModel\TypeFormation.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\model\sousModel\StudentRestClient.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\service\StudentRestClient.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\AbsenceService.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\entities\EtudiantAbsence.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\model\Absence.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\repository\AbsenceRepository.java
+C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\model\sousModel\Professor.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\service\AbsenceConsumerConfig.java
 C:\Users\DELL XPS\Desktop\5IIR\JEE\schoolservices\absence-service\src\main\java\com\school\config\KafkaConsumerConfig.java

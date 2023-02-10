@@ -2,50 +2,42 @@ package com.school.etudiant.controller;
 
 
 import com.school.etudiant.dto.EtudiantResponse;
+import com.school.etudiant.enums.TypeFormation;
 import com.school.etudiant.model.Etudiant;
+import com.school.etudiant.repositorir.EturdiantRepositorie;
 import com.school.etudiant.service.EtudiantServcieImpl;
 import com.school.etudiant.dto.EtudiantRequeste;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 
 @RestController
-@RequestMapping(produces = "application/json",path = "/api/v1/etudiant")
+@RequestMapping(produces = "application/json",path = "api/v1")
 public class EtudiantController {
 
     @Autowired
-    EtudiantServcieImpl etudiantServcie;
+    EturdiantRepositorie  etudiantR;
 
-    @PostMapping("/add")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
-    public EtudiantResponse addEtudiant(@RequestBody EtudiantRequeste etudiant){
-        return etudiantServcie.addEtudiant(etudiant);
-    }
+    @Autowired
+    RepositoryRestConfiguration repositoryRestConfiguration;
 
-    @PutMapping("/update/{id}")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
-    public Etudiant updateEtudiant(@PathVariable Long id , @RequestBody Etudiant e){
-      return etudiantServcie.editEtudiant(id,e);
 
-    }
 
-    @GetMapping("/etudiant/{id}")
-    @PreAuthorize("hasAnyAuthority('USER')")
-    public Etudiant getEtudiant(@PathVariable Long id){
-    return etudiantServcie.findById(id);
-    }
-    @GetMapping("/etudiants")
-    @PreAuthorize("hasAnyAuthority('USER')")
+
+    @GetMapping("/etudiant")
     public List<Etudiant> geAlltEtudiant(){
-        return etudiantServcie.findAll();
+        repositoryRestConfiguration.exposeIdsFor(Etudiant.class);
+        etudiantR.deleteAll();
+        for (int i = 2; i < 10; i++) {
+            etudiantR.save(new Etudiant(null,"Zakaria","Cin_"+i,new Date(), TypeFormation.formation_continue,"zakaria"+i+"@gmail.com",true));
+        }
+        return etudiantR.findAll();
     }
 
-    @DeleteMapping("/delete/{id}")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
-    public void deleteEtudiant(@RequestParam Long id){
-        etudiantServcie.deleteById(id);
-    }
+
 }

@@ -4,7 +4,6 @@ com\school\etudiant\service\EtudiantService.class
 com\school\etudiant\EtudiantApplication.class
 com\school\etudiant\mappers\EtudiantMapper.class
 com\school\etudiant\service\EtudiantServcieImpl.class
-com\school\etudiant\model\EtudiantProjection.class
 com\school\etudiant\repositorir\EturdiantRepositorie.class
 com\school\etudiant\dto\EtudiantRequeste.class
 com\school\etudiant\security\SecurityConfig.class

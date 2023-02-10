@@ -1,18 +1,22 @@
 server:
   port: 8083
-
 spring:
   application:
     name: api-gateway
-  zipkin:
-    base-url: http://zipkin:9411
   cloud:
     gateway:
       routes:
         - id: etudiant
           uri: lb://ETUDIANT
           predicates:
-            - Path=/api/v1/etudiant/**
+            - Path=/etudiants/**
+        - id: professor
+          uri: lb://PROFESSOR
+          predicates:
+            - Path=/professors/**
+  zipkin:
+    base-url: http://zipkin:9411
+
 eureka:
   client:
     fetch-registry: true

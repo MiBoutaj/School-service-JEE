@@ -1,0 +1,15 @@
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+  zipkin:
+    base-url: http://zipkin:9411
+  application:
+    name: kafka-producer
+server:
+  port: 8085
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka

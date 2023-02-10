@@ -1,0 +1,26 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: professor
+  datasource:
+    url: jdbc:mysql://mariadb-school:3306/professors?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    password: admin
+    username: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  zipkin:
+    base-url: http://zipkin:9411
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka

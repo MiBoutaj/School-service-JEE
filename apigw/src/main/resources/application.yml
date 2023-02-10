@@ -9,9 +9,19 @@ spring:
         - id: etudiant
           uri: lb://ETUDIANT
           predicates:
-            - Path=/api/v1/etudiant/**
+            - Path=/etudiants/**
+        - id: professor
+          uri: lb://PROFESSOR
+          predicates:
+            - Path=/professors/**
+        - id: course
+          uri: lb://COURSE
+          predicates:
+              - Path=/courses/**
+              - Path=/studentCourses/**
   zipkin:
     base-url: http://localhost:9411
+
 
 eureka:
   client:

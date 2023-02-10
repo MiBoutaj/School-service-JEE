@@ -1,1 +1,13 @@
+com\school\repository\StudentCourseRepository.class
+com\school\service\ProfessorRestClient.class
+com\school\model\sousModel\StudentRestClient.class
+com\school\model\sousModel\TypeFormation.class
+com\school\controller\CourseController.class
+com\school\repository\CourseRepository.class
+com\school\model\sousModel\Etudiant.class
+com\school\model\sousModel\Professor.class
+com\school\model\Course.class
+com\school\model\StudentCours.class
 com\school\CourseService.class
+com\school\model\sousModel\Metier.class
+com\school\service\StudentRestClient.class

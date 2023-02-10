@@ -1,6 +1,7 @@
 package com.school.model;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.school.enums.Metier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +29,7 @@ public class Professor {
     private Metier metier;
     @Column(nullable = false)
     private String email;
+
     private Boolean actif;
 
 }
